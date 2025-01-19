@@ -1,10 +1,22 @@
 {
-  "name": "your-project-name",
+  "name": "skepticism-score",
   "version": "1.0.0",
+  "description": "Analyze X.com accounts for potential misinformation using sentiment analysis",
+  "main": "server.js",
   "scripts": {
-    "start": "node your-main-file.js"
+    "start": "node server.js",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run start\" \"npm run client\""
   },
   "dependencies": {
-    "@react-native-async-storage/async-storage": "^2.1.0"
+    "express": "^4.18.2",
+    "twitter-api-v2": "^1.15.2",
+    "sentiment": "^5.0.2",
+    "dotenv": "^16.3.1",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.2"
   }
 }

@@ -1,68 +1,109 @@
-# AI16Z ELIZA Clone
+# Skepticism Score
 
-A modern implementation of the classic ELIZA chatbot, inspired by AI16Z. This chatbot uses pattern matching and simple natural language processing to engage in conversation with users, simulating a Rogerian psychotherapist. Now with X.com (Twitter) integration!
+A modern web application that analyzes X.com (Twitter) accounts for potential misinformation using sentiment analysis and engagement patterns.
+
+![Skepticism Score Screenshot](screenshot.png)
 
 ## Features
 
-- Pattern-based conversation responses
-- First/second person word reflection
-- Natural language understanding
-- Therapeutic-style responses
-- Simple command-line interface
-- X.com (Twitter) integration - post conversations to your timeline
+- Real-time X.com account analysis
+- Misinformation scoring (1-10 scale)
+- Beautiful dark mode UI with glass-morphism effects
+- Responsive design
+- Accessibility support
 
-## Requirements
+## Tech Stack
 
-1. Python 3.6+
-2. Required packages (install via `pip install -r requirements.txt`):
-   - tweepy (for X.com integration)
+- Frontend: React.js
+- Backend: Node.js + Express
+- API: Twitter API v2
+- Styling: Custom CSS with modern effects
 
-## X.com Integration Setup
+## Prerequisites
 
-To enable X.com integration, you need to:
+- Node.js 14+ and npm
+- Twitter API Bearer Token
+- Modern web browser
 
-1. Create a developer account at https://developer.twitter.com
-2. Create a new app and get your API credentials
-3. Set the following environment variables:
-   ```bash
-   export TWITTER_API_KEY='your_api_key'
-   export TWITTER_API_SECRET='your_api_secret'
-   export TWITTER_ACCESS_TOKEN='your_access_token'
-   export TWITTER_ACCESS_TOKEN_SECRET='your_access_token_secret'
-   export USE_TWITTER='true'
-   ```
+## Environment Variables
 
-## How to Run
+Create a `.env` file in the root directory:
 
-1. Make sure you have Python installed on your system
-2. Clone this repository
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. (Optional) Set up X.com integration as described above
-5. Run the chatbot:
-   ```bash
-   python eliza.py
-   ```
-
-## Usage
-
-- Start typing your messages and press Enter
-- The chatbot will respond based on pattern matching
-- If X.com integration is enabled, conversations will be posted to your timeline
-- Type 'quit', 'bye', or 'goodbye' to end the conversation
-
-## Example Conversation
-
-```
-ELIZA: Hello. How are you feeling today?
-YOU: I am feeling sad
-ELIZA: How long have you been feeling sad?
-YOU: I don't know what to do
-ELIZA: Why don't you tell me more about what's troubling you?
+```env
+TWITTER_BEARER_TOKEN=your_twitter_bearer_token
+PORT=5002
 ```
 
-## Note
+## Installation
 
-This is a simple implementation meant for educational purposes. The responses are template-based and the bot does not have true understanding or memory of the conversation. When using X.com integration, be mindful of rate limits and the public nature of posted content. 
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/skepticism-score.git
+cd skepticism-score
+```
+
+2. Install dependencies:
+```bash
+# Install backend dependencies
+npm install
+
+# Install frontend dependencies
+cd client
+npm install
+```
+
+3. Start the development servers:
+```bash
+# Start backend (from root directory)
+npm start
+
+# Start frontend (from client directory)
+cd client
+npm start
+```
+
+## Deployment
+
+### Backend Deployment (Heroku)
+1. Create a new Heroku app
+2. Set environment variables in Heroku dashboard
+3. Deploy using Heroku Git:
+```bash
+heroku login
+heroku git:remote -a your-app-name
+git push heroku main
+```
+
+### Frontend Deployment (Vercel)
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Configure build settings:
+   - Build Command: `npm run build`
+   - Output Directory: `build`
+   - Install Command: `npm install`
+
+## API Endpoints
+
+- `GET /health` - Server health check
+- `POST /analyze` - Analyze X.com account
+  - Body: `{ "username": "twitter_username" }`
+  - Response: `{ "score": number, "analyzedTweets": number, "lastAnalyzed": string }`
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Created by @Divine3rd(https://x.com/divine3rd)
+- Design inspired by [skepticism.vercel.app](https://skepticism.vercel.app)
+- Twitter API Documentation
+- React.js Community 

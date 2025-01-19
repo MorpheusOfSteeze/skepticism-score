@@ -4,6 +4,12 @@
       "eas": {
         "projectId": "597e3691-b39b-4f84-997f-7d2a8059d3f5"
       }
+    },
+    "android": {
+      "package": "com.divine_3rd.USB"
+    },
+    "ios": {
+      "bundleIdentifier": "USB"
     }
   }
 }
